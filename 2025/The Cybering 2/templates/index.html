@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <title>The Cybering: 2</title>
+</head>
+<body class="bg-dark">
+    <header class="text-center my-4">
+        <h1 class="text-success">The Cybering: 2</h1>
+        <h3 class="text-white">The SeQueL</h3>
+    </header>
+
+    <div name="MAIN" class="text-center">
+        <img src="{{ url_for('static', filename='assets/poster.jpg') }}" alt="THE CYBERING 2" />
+        <br />
+        <h4 class="text-info">GET YOUR TICKETS <a href="{{ url_for('book_tickets')}}">HERE</a>!</h4>
+        <br><br>
+        <details class="text-white position-absolute top-0 end-0">
+            <summary class="me-5 pe-5">Click here if you are admin</summary>
+
+            <form autocomplete="off" action="/submit" method="post" class="text-light">
+                <label for="username">Username:</label>
+                <input autocomplete="off" name="username" maxlength="20" type="text" placeholder="Enter username" class="text-black" required/>
+                <br />
+                <label for="password">Password:</label>
+                <input autocomplete="off" name="password" type="password" placeholder="Enter password" class="text-black" required/>
+                <br /><br />
+                <button type="submit" class="btn btn-sm btn-success text-black">
+                    Login
+                </button>
+            </form>
+        </details>
+    </div>
+</body>
+</html>

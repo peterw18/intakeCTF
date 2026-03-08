@@ -1,0 +1,18 @@
+# Use official PHP with Apache
+FROM php:8.2-apache
+
+# Create uploads directory and set permissions
+RUN mkdir /var/www/html/uploads && \
+    chown www-data:www-data /var/www/html/uploads && \
+    chmod 700 /var/www/html/uploads
+
+# Copy receiver.php into web root
+COPY ./c2c/receiver.php /var/www/html/receiver.php
+
+COPY ./c2c/etcshadow_old /var/www/html/uploads/
+
+# Expose Apache on port 8000
+EXPOSE 80
+
+# Run Apache in foreground, listening on port 8000
+CMD ["apache2-foreground"]
